@@ -14,13 +14,13 @@ public class StringUtilsTest {
 
     @Test
     public void testCountVowels() {
-        assertEquals(9, StringUtils.countVowels("A man a plan a canal Panama"));
+        assertEquals(10, StringUtils.countVowels("A man a plan a canal Panama"));
         assertEquals(3, StringUtils.countVowels("Hello World"));
     }
 
     @Test
     public void testCountConsonants() {
-        assertEquals(10, StringUtils.countConsonants("A man a plan a canal Panama"));
+        assertEquals(11, StringUtils.countConsonants("A man a plan a canal Panama"));
         assertEquals(7, StringUtils.countConsonants("Hello World"));
     }
 

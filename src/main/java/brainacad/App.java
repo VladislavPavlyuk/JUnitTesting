@@ -1,12 +1,9 @@
 package brainacad;
-
-
-
 import brainacad.currencies.utils.*;
-import brainacad.lengths.utils.LengthConverterTest;
+import brainacad.lengths.utils.*;
 import brainacad.shapes.utils.*;
 import brainacad.stringutils.utils.*;
-import brainacad.weights.utils.WeightConverterTest;
+import brainacad.weights.utils.*;
 
 public class App
 {
@@ -17,7 +14,7 @@ public class App
             shapeTest.testRectangleArea();
             shapeTest.testSquareArea();
             shapeTest.testRhombusArea();
-/*
+
         CurrencyConverterTest testCurrencyConverter = new CurrencyConverterTest();
             testCurrencyConverter.testConvertUsdToEur();
             testCurrencyConverter.testConvertEurToGbp();
@@ -29,7 +26,7 @@ public class App
             testStringUtils.testIsPalindrome();
             testStringUtils.testCountVowels();
             testStringUtils.testCountWordOccurrences();
-*/
+
         LengthConverterTest testLengthConverter = new LengthConverterTest();
             testLengthConverter.testToMillimeters();
             testLengthConverter.testToCentimeters();
