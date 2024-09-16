@@ -6,6 +6,7 @@ import brainacad.currencies.utils.*;
 import brainacad.lengths.utils.LengthConverterTest;
 import brainacad.shapes.utils.*;
 import brainacad.stringutils.utils.*;
+import brainacad.weights.utils.WeightConverterTest;
 
 public class App
 {
@@ -36,6 +37,11 @@ public class App
             testLengthConverter.testToMeters();
             testLengthConverter.testToKilometers();
 
-
+        WeightConverterTest testWeightConverter = new WeightConverterTest();
+            testWeightConverter.testToMilligrams();
+            testWeightConverter.testToGrams();
+            testWeightConverter.testToKilograms();
+            testWeightConverter.testToCentners();
+            testWeightConverter.testToTons();
     }
 }
