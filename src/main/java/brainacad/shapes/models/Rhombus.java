@@ -1,4 +1,4 @@
-package brainacad;
+package brainacad.shapes.models;
 
 public class Rhombus extends Shape {
     private double diagonal1;

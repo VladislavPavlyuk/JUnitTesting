@@ -1,4 +1,4 @@
-package brainacad;
+package brainacad.currencies.models;
 
 import java.util.HashMap;
 import java.util.Map;

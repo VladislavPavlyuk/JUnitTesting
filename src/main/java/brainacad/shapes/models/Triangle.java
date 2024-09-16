@@ -1,4 +1,4 @@
-package brainacad;
+package brainacad.shapes.models;
 
 public class Triangle extends Shape {
     private double base;

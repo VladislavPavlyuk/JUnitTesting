@@ -1,4 +1,4 @@
-package brainacad;
+package brainacad.shapes.models;
 
 public class Rectangle extends Shape {
     private double length;

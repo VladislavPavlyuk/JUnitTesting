@@ -1,2 +1,4 @@
-package brainacad.lengths.model;public class LengthConverter {
+package brainacad.lengths.model;
+
+public class LengthConverter {
 }

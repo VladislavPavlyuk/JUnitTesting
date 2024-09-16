@@ -1,4 +1,4 @@
-package brainacad-org;
+package brainacad;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

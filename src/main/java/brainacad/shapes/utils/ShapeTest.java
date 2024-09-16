@@ -1,8 +1,7 @@
-package brainacad;
+package brainacad.shapes.utils;
 
 import org.junit.jupiter.api.Test;
-import shapes.models.*;
-import shapes.models.Rectangle;
+import brainacad.shapes.models.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
