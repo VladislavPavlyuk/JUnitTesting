@@ -24,6 +24,7 @@ public class StringUtilsTest {
         assertEquals(7, StringUtils.countConsonants("Hello World"));
     }
 
+
     @Test
     public void testCountWordOccurrences() {
         assertEquals(2, StringUtils.countWordOccurrences("Hello World, Hello", "Hello"));
