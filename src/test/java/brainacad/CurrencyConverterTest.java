@@ -1,4 +1,4 @@
-package brainacad.currencies.utils;
+package brainacad;
 
 import brainacad.currencies.models.CurrencyConverter;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +16,7 @@ public class CurrencyConverterTest {
     }
 
     @Test
-    public void testConvertUsdToEur() {
+    public void test_should_return_Double_if_called() {
         if (converter!=null) {
             double result = converter.convert("USD", "EUR", 100);
             assertEquals(85, result, 0.001);
@@ -24,7 +24,7 @@ public class CurrencyConverterTest {
     }
 
     @Test
-    public void testConvertEurToGbp() {
+    public void test2_should_return_Double_if_called() {
         if (converter!=null) {
             double result = converter.convert("EUR", "GBP", 100);
             assertEquals(88.235, result, 0.001);
@@ -32,7 +32,7 @@ public class CurrencyConverterTest {
     }
 
     @Test
-    public void testConvertGbpToJpy() {
+    public void test3_should_return_Double_if_called() {
         if (converter!=null) {
         double result = converter.convert("GBP", "JPY", 100);
         assertEquals(14666.67, result, 0.01);
@@ -40,7 +40,7 @@ public class CurrencyConverterTest {
     }
 
     @Test
-    public void testInvalidCurrency() {
+    public void test_should_return_InvalidCurrency_if_called() {
         if (converter!=null) {
         assertThrows(IllegalArgumentException.class, () -> {
             converter.convert("USD", "ABC", 100);

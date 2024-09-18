@@ -1,44 +1,40 @@
 package brainacad;
-import brainacad.currencies.utils.*;
-import brainacad.lengths.utils.*;
-import brainacad.shapes.utils.*;
-import brainacad.stringutils.utils.*;
-import brainacad.weights.utils.*;
+
+import brainacad.currencies.models.CurrencyConverter;
+import brainacad.lengths.model.LengthConverter;
+import brainacad.shapes.models.Rectangle;
+import brainacad.shapes.models.Rhombus;
+import brainacad.shapes.models.Square;
+import brainacad.shapes.models.Triangle;
+import brainacad.stringutils.models.StringUtils;
+import brainacad.weights.models.WeightConverter;
 
 public class App
 {
     public static void main(String[] args) {
 
-        ShapeTest shapeTest = new ShapeTest();
-            shapeTest.testTriangleArea();
-            shapeTest.testRectangleArea();
-            shapeTest.testSquareArea();
-            shapeTest.testRhombusArea();
+        Rectangle rectangle = new Rectangle();
+        rectangle.calculateArea();
 
-        CurrencyConverterTest testCurrencyConverter = new CurrencyConverterTest();
-            testCurrencyConverter.testConvertUsdToEur();
-            testCurrencyConverter.testConvertEurToGbp();
-            testCurrencyConverter.testConvertGbpToJpy();
-            testCurrencyConverter.testInvalidCurrency();
+        Rhombus rhombus = new Rhombus();
+        rhombus.calculateArea();
 
-        StringUtilsTest testStringUtils = new StringUtilsTest();
-            testStringUtils.testCountConsonants();
-            testStringUtils.testIsPalindrome();
-            testStringUtils.testCountVowels();
-            testStringUtils.testCountWordOccurrences();
+        Square square = new Square();
+        square.calculateArea();
 
-        LengthConverterTest testLengthConverter = new LengthConverterTest();
-            testLengthConverter.testToMillimeters();
-            testLengthConverter.testToCentimeters();
-            testLengthConverter.testToDecimeters();
-            testLengthConverter.testToMeters();
-            testLengthConverter.testToKilometers();
+        Triangle triangle = new Triangle();
+        triangle.calculateArea();
 
-        WeightConverterTest testWeightConverter = new WeightConverterTest();
-            testWeightConverter.testToMilligrams();
-            testWeightConverter.testToGrams();
-            testWeightConverter.testToKilograms();
-            testWeightConverter.testToCentners();
-            testWeightConverter.testToTons();
+        CurrencyConverter currencyConverter = new CurrencyConverter();
+        currencyConverter.convert("EUR","USD",1);
+
+        LengthConverter lengthConverter = new LengthConverter();
+        lengthConverter.toCentimeters(100);
+
+        StringUtils stringUtils = new StringUtils();
+        stringUtils.isPalindrome("А роза упала на лапу Азора");
+
+        WeightConverter weightConverter = new WeightConverter();
+        weightConverter.toCentners(100);
     }
 }
