@@ -1,28 +1,25 @@
 package brainacad;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import static org.junit.jupiter.api.Assertions.*;
 
-// Unit test for simple App.
-public class AppTest 
-    extends TestCase
-{
-    //Create the test case
-    public AppTest( String testName )
-    {
-        super( testName );
+@ExtendWith(TestResultLogger.class)
+public class AppTest {
+    
+    @Test
+    public void main_WhenCalled_ExecutesWithoutException() {
+        // Проверяем, что метод main выполняется без исключений
+        assertDoesNotThrow(() -> {
+            App.main(new String[]{});
+        });
     }
-
-    // @return the suite of tests being tested
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    // Rigourous Test :-)
-    public void testApp()
-    {
-        assertTrue( true );
+    
+    @Test
+    public void main_WhenCalledWithArgs_ExecutesWithoutException() {
+        // Проверяем, что метод main выполняется без исключений с аргументами
+        assertDoesNotThrow(() -> {
+            App.main(new String[]{"arg1", "arg2"});
+        });
     }
 }

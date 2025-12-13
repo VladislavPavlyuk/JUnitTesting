@@ -6,18 +6,8 @@ import brainacad.lengths.model.LengthConverter;
 import brainacad.shapes.models.*;
 import brainacad.stringutils.models.StringUtils;
 import brainacad.weights.models.WeightConverter;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 
 public class DemoService {
-    
-    static {
-        try {
-            System.setOut(new PrintStream(System.out, true, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
     
     public void demonstrateShapes() {
         System.out.println("=== Демонстрация работы с геометрическими фигурами ===");

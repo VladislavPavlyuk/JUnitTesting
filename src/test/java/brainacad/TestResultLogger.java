@@ -22,26 +22,26 @@ public class TestResultLogger implements TestWatcher, BeforeTestExecutionCallbac
     @Override
     public void beforeTestExecution(ExtensionContext context) {
         String testName = getTestName(context);
-        out.println("\n▶ ВЫПОЛНЕНИЕ ТЕСТА: " + testName);
+        out.println("\n[ВЫПОЛНЕНИЕ ТЕСТА] " + testName);
     }
     
     @Override
     public void testSuccessful(ExtensionContext context) {
         String testName = getTestName(context);
-        out.println("✓ ТЕСТ УСПЕШНО ВЫПОЛНЕН: " + testName);
+        out.println("[УСПЕШНО] " + testName);
     }
     
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
         String testName = getTestName(context);
-        out.println("✗ ТЕСТ НЕ ПРОШЕЛ: " + testName);
+        out.println("[НЕ ПРОШЕЛ] " + testName);
         out.println("  Причина: " + cause.getMessage());
     }
     
     @Override
     public void testAborted(ExtensionContext context, Throwable cause) {
         String testName = getTestName(context);
-        out.println("⚠ ТЕСТ ПРЕРВАН: " + testName);
+        out.println("[ПРЕРВАН] " + testName);
         if (cause != null) {
             out.println("  Причина: " + cause.getMessage());
         }
