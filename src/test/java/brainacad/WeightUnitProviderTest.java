@@ -20,14 +20,14 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates возвращает не-null карту")
-    public void testGetConversionRates_NotNull() {
+    public void getConversionRates_WhenCalled_ReturnsNotNull() {
         Map<String, Double> rates = provider.getConversionRates();
         assertNotNull(rates);
     }
 
     @Test
     @DisplayName("getConversionRates содержит все единицы веса")
-    public void testGetConversionRates_ContainsAllUnits() {
+    public void getConversionRates_WhenCalled_ContainsAllUnits() {
         Map<String, Double> rates = provider.getConversionRates();
         assertTrue(rates.containsKey("mg"));
         assertTrue(rates.containsKey("g"));
@@ -38,7 +38,7 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: килограммы имеют коэффициент 1.0")
-    public void testGetConversionRates_KilogramRate() {
+    public void getConversionRates_WhenKilogram_ReturnsOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResultKg = rates.get("kg");
         double expectedResultKg = 1.0;
@@ -55,7 +55,7 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: миллиграммы имеют коэффициент 0.000001")
-    public void testGetConversionRates_MilligramRate() {
+    public void getConversionRates_WhenMilligram_ReturnsZeroPointZeroZeroZeroZeroZeroOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("mg");
         double expectedResult = 0.000001;
@@ -64,7 +64,7 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: граммы имеют коэффициент 0.001")
-    public void testGetConversionRates_GramRate() {
+    public void getConversionRates_WhenGram_ReturnsZeroPointZeroZeroOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("g");
         double expectedResult = 0.001;
@@ -73,7 +73,7 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: центнеры имеют коэффициент 100.0")
-    public void testGetConversionRates_CentnerRate() {
+    public void getConversionRates_WhenCentner_ReturnsHundred() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("cwt");
         double expectedResult = 100.0;
@@ -82,7 +82,7 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: тонны имеют коэффициент 1000.0")
-    public void testGetConversionRates_TonRate() {
+    public void getConversionRates_WhenTon_ReturnsThousand() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResultT = rates.get("t");
         double expectedResultT = 1000.0;
@@ -99,13 +99,13 @@ public class WeightUnitProviderTest {
 
     @Test
     @DisplayName("getBaseUnit возвращает 'kg'")
-    public void testGetBaseUnit() {
+    public void getBaseUnit_WhenCalled_ReturnsKilogram() {
         assertEquals("kg", provider.getBaseUnit());
     }
 
     @Test
     @DisplayName("getConversionRates: все коэффициенты положительные")
-    public void testGetConversionRates_AllRatesPositive() {
+    public void getConversionRates_WhenCalled_AllRatesArePositive() {
         Map<String, Double> rates = provider.getConversionRates();
         for (Double rate : rates.values()) {
             assertTrue(rate > 0, "Rate should be positive: " + rate);

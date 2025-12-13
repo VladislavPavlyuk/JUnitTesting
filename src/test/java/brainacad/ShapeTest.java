@@ -13,7 +13,7 @@ public class ShapeTest {
     
     @Test
     @DisplayName("Треугольник: нормальный случай")
-    public void triangleTest_normalCase() {
+    public void calculateArea_WhenValidTriangle_ReturnsCorrectArea() {
         Triangle triangle = new Triangle(10, 5);
         double actualResult = triangle.calculateArea();
         double expectedResult = 25.0;
@@ -22,7 +22,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: площадь с дробными значениями")
-    public void triangleTest_decimalValues() {
+    public void calculateArea_WhenTriangleWithDecimalValues_ReturnsCorrectArea() {
         Triangle triangle = new Triangle(7.5, 4.2);
         double actualResult = triangle.calculateArea();
         double expectedResult = 15.75;
@@ -31,7 +31,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: большие значения")
-    public void triangleTest_largeValues() {
+    public void calculateArea_WhenTriangleWithLargeValues_ReturnsCorrectArea() {
         Triangle triangle = new Triangle(100, 50);
         double actualResult = triangle.calculateArea();
         double expectedResult = 2500.0;
@@ -40,7 +40,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: маленькие значения")
-    public void triangleTest_smallValues() {
+    public void calculateArea_WhenTriangleWithSmallValues_ReturnsCorrectArea() {
         Triangle triangle = new Triangle(0.5, 0.3);
         double actualResult = triangle.calculateArea();
         double expectedResult = 0.075;
@@ -49,7 +49,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: нулевая высота")
-    public void triangleTest_zeroHeight() {
+    public void calculateArea_WhenTriangleWithZeroHeight_ReturnsZero() {
         Triangle triangle = new Triangle(10, 0);
         double actualResult = triangle.calculateArea();
         double expectedResult = 0.0;
@@ -58,7 +58,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: нулевое основание")
-    public void triangleTest_zeroBase() {
+    public void calculateArea_WhenTriangleWithZeroBase_ReturnsZero() {
         Triangle triangle = new Triangle(0, 5);
         double actualResult = triangle.calculateArea();
         double expectedResult = 0.0;
@@ -67,7 +67,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: оба значения нулевые")
-    public void triangleTest_bothZero() {
+    public void calculateArea_WhenTriangleWithBothZeroValues_ReturnsZero() {
         Triangle triangle = new Triangle(0, 0);
         double actualResult = triangle.calculateArea();
         double expectedResult = 0.0;
@@ -76,7 +76,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: отрицательное основание - исключение")
-    public void triangleTest_negativeBase() {
+    public void Triangle_WhenNegativeBase_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Triangle(-5, 10);
         });
@@ -84,7 +84,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: отрицательная высота - исключение")
-    public void triangleTest_negativeHeight() {
+    public void Triangle_WhenNegativeHeight_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Triangle(10, -5);
         });
@@ -92,7 +92,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Треугольник: установка значений через сеттеры")
-    public void triangleTest_setters() {
+    public void calculateArea_WhenTriangleCreatedWithSetters_ReturnsCorrectArea() {
         Triangle triangle = new Triangle();
         triangle.setBase(8);
         triangle.setHeight(6);
@@ -105,7 +105,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: нормальный случай")
-    public void rectangleTest_normalCase() {
+    public void calculateArea_WhenValidRectangle_ReturnsCorrectArea() {
         Rectangle rectangle = new Rectangle(10, 5);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 50.0;
@@ -114,7 +114,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: площадь с дробными значениями")
-    public void rectangleTest_decimalValues() {
+    public void calculateArea_WhenRectangleWithDecimalValues_ReturnsCorrectArea() {
         Rectangle rectangle = new Rectangle(7.5, 4.2);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 31.5;
@@ -123,7 +123,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: квадрат (частный случай)")
-    public void rectangleTest_squareCase() {
+    public void calculateArea_WhenSquareRectangle_ReturnsCorrectArea() {
         Rectangle rectangle = new Rectangle(5, 5);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 25.0;
@@ -132,7 +132,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: большие значения")
-    public void rectangleTest_largeValues() {
+    public void calculateArea_WhenRectangleWithLargeValues_ReturnsCorrectArea() {
         Rectangle rectangle = new Rectangle(100, 50);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 5000.0;
@@ -141,7 +141,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: маленькие значения")
-    public void rectangleTest_smallValues() {
+    public void calculateArea_WhenRectangleWithSmallValues_ReturnsCorrectArea() {
         Rectangle rectangle = new Rectangle(0.5, 0.3);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 0.15;
@@ -150,7 +150,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: нулевая длина")
-    public void rectangleTest_zeroLength() {
+    public void calculateArea_WhenRectangleWithZeroLength_ReturnsZero() {
         Rectangle rectangle = new Rectangle(0, 5);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 0.0;
@@ -159,7 +159,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: нулевая ширина")
-    public void rectangleTest_zeroWidth() {
+    public void calculateArea_WhenRectangleWithZeroWidth_ReturnsZero() {
         Rectangle rectangle = new Rectangle(10, 0);
         double actualResult = rectangle.calculateArea();
         double expectedResult = 0.0;
@@ -168,7 +168,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: отрицательная длина - исключение")
-    public void rectangleTest_negativeLength() {
+    public void Rectangle_WhenNegativeLength_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Rectangle(-5, 10);
         });
@@ -176,7 +176,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: отрицательная ширина - исключение")
-    public void rectangleTest_negativeWidth() {
+    public void Rectangle_WhenNegativeWidth_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Rectangle(10, -5);
         });
@@ -184,7 +184,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Прямоугольник: установка значений через сеттеры")
-    public void rectangleTest_setters() {
+    public void calculateArea_WhenRectangleCreatedWithSetters_ReturnsCorrectArea() {
         Rectangle rectangle = new Rectangle();
         rectangle.setLength(8);
         rectangle.setWidth(6);
@@ -197,7 +197,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: нормальный случай")
-    public void squareTest_normalCase() {
+    public void calculateArea_WhenValidSquare_ReturnsCorrectArea() {
         Square square = new Square(6);
         double actualResult = square.calculateArea();
         double expectedResult = 36.0;
@@ -206,7 +206,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: площадь с дробным значением")
-    public void squareTest_decimalValue() {
+    public void calculateArea_WhenSquareWithDecimalValue_ReturnsCorrectArea() {
         Square square = new Square(5.5);
         double actualResult = square.calculateArea();
         double expectedResult = 30.25;
@@ -215,7 +215,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: большие значения")
-    public void squareTest_largeValue() {
+    public void calculateArea_WhenSquareWithLargeValue_ReturnsCorrectArea() {
         Square square = new Square(100);
         double actualResult = square.calculateArea();
         double expectedResult = 10000.0;
@@ -224,7 +224,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: маленькие значения")
-    public void squareTest_smallValue() {
+    public void calculateArea_WhenSquareWithSmallValue_ReturnsCorrectArea() {
         Square square = new Square(0.5);
         double actualResult = square.calculateArea();
         double expectedResult = 0.25;
@@ -233,7 +233,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: нулевая сторона")
-    public void squareTest_zeroSide() {
+    public void calculateArea_WhenSquareWithZeroSide_ReturnsZero() {
         Square square = new Square(0);
         double actualResult = square.calculateArea();
         double expectedResult = 0.0;
@@ -242,7 +242,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: отрицательная сторона - исключение")
-    public void squareTest_negativeSide() {
+    public void Square_WhenNegativeSide_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Square(-5);
         });
@@ -250,7 +250,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: установка значения через сеттер")
-    public void squareTest_setter() {
+    public void calculateArea_WhenSquareCreatedWithSetter_ReturnsCorrectArea() {
         Square square = new Square();
         square.setSide(7);
         double actualResult = square.calculateArea();
@@ -260,7 +260,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Квадрат: единичная сторона")
-    public void squareTest_unitSide() {
+    public void calculateArea_WhenSquareWithUnitSide_ReturnsOne() {
         Square square = new Square(1);
         double actualResult = square.calculateArea();
         double expectedResult = 1.0;
@@ -271,7 +271,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: нормальный случай")
-    public void rhombusTest_normalCase() {
+    public void calculateArea_WhenValidRhombus_ReturnsCorrectArea() {
         Rhombus rhombus = new Rhombus(4, 5);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 10.0;
@@ -280,7 +280,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: площадь с дробными значениями")
-    public void rhombusTest_decimalValues() {
+    public void calculateArea_WhenRhombusWithDecimalValues_ReturnsCorrectArea() {
         Rhombus rhombus = new Rhombus(6.4, 5.2);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 16.64;
@@ -289,7 +289,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: равные диагонали")
-    public void rhombusTest_equalDiagonals() {
+    public void calculateArea_WhenRhombusWithEqualDiagonals_ReturnsCorrectArea() {
         Rhombus rhombus = new Rhombus(5, 5);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 12.5;
@@ -298,7 +298,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: большие значения")
-    public void rhombusTest_largeValues() {
+    public void calculateArea_WhenRhombusWithLargeValues_ReturnsCorrectArea() {
         Rhombus rhombus = new Rhombus(100, 50);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 2500.0;
@@ -307,7 +307,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: маленькие значения")
-    public void rhombusTest_smallValues() {
+    public void calculateArea_WhenRhombusWithSmallValues_ReturnsCorrectArea() {
         Rhombus rhombus = new Rhombus(0.5, 0.3);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 0.075;
@@ -316,7 +316,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: нулевая первая диагональ")
-    public void rhombusTest_zeroDiagonal1() {
+    public void calculateArea_WhenRhombusWithZeroDiagonal1_ReturnsZero() {
         Rhombus rhombus = new Rhombus(0, 5);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 0.0;
@@ -325,7 +325,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: нулевая вторая диагональ")
-    public void rhombusTest_zeroDiagonal2() {
+    public void calculateArea_WhenRhombusWithZeroDiagonal2_ReturnsZero() {
         Rhombus rhombus = new Rhombus(4, 0);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 0.0;
@@ -334,7 +334,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: обе диагонали нулевые")
-    public void rhombusTest_bothDiagonalsZero() {
+    public void calculateArea_WhenRhombusWithBothDiagonalsZero_ReturnsZero() {
         Rhombus rhombus = new Rhombus(0, 0);
         double actualResult = rhombus.calculateArea();
         double expectedResult = 0.0;
@@ -343,7 +343,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: отрицательная первая диагональ - исключение")
-    public void rhombusTest_negativeDiagonal1() {
+    public void Rhombus_WhenNegativeDiagonal1_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Rhombus(-5, 10);
         });
@@ -351,7 +351,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: отрицательная вторая диагональ - исключение")
-    public void rhombusTest_negativeDiagonal2() {
+    public void Rhombus_WhenNegativeDiagonal2_ThrowsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Rhombus(10, -5);
         });
@@ -359,7 +359,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Ромб: установка значений через сеттеры")
-    public void rhombusTest_setters() {
+    public void calculateArea_WhenRhombusCreatedWithSetters_ReturnsCorrectArea() {
         Rhombus rhombus = new Rhombus();
         rhombus.setDiagonal1(8);
         rhombus.setDiagonal2(6);
@@ -372,7 +372,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Интеграционный тест: все фигуры с одинаковой площадью")
-    public void integrationTest_sameArea() {
+    public void calculateArea_WhenAllShapesWithSameDimensions_ReturnsCorrectAreas() {
         Triangle triangle = new Triangle(10, 10);
         Rectangle rectangle = new Rectangle(5, 10);
         Square square = new Square(10);
@@ -397,7 +397,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Интеграционный тест: множественные вычисления")
-    public void integrationTest_multipleCalculations() {
+    public void calculateArea_WhenCalledMultipleTimes_ReturnsConsistentResults() {
         Triangle triangle = new Triangle(3, 4);
         Rectangle rectangle = new Rectangle(3, 4);
         Square square = new Square(3);
@@ -429,7 +429,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rectangle: getLength возвращает установленное значение")
-    public void testRectangle_getLength() {
+    public void getLength_WhenRectangleCreatedWithLength_ReturnsLength() {
         Rectangle rectangle = new Rectangle(10, 5);
         double actualResult = rectangle.getLength();
         double expectedResult = 10.0;
@@ -438,7 +438,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rectangle: getWidth возвращает установленное значение")
-    public void testRectangle_getWidth() {
+    public void getWidth_WhenRectangleCreatedWithWidth_ReturnsWidth() {
         Rectangle rectangle = new Rectangle(10, 5);
         double actualResult = rectangle.getWidth();
         double expectedResult = 5.0;
@@ -447,7 +447,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rectangle: геттеры после установки через сеттеры")
-    public void testRectangle_gettersAfterSetters() {
+    public void getLengthAndWidth_WhenSetViaSetters_ReturnsSetValues() {
         Rectangle rectangle = new Rectangle();
         rectangle.setLength(8);
         rectangle.setWidth(6);
@@ -462,7 +462,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rectangle: геттеры возвращают 0 для пустого объекта")
-    public void testRectangle_gettersDefaultValues() {
+    public void getLengthAndWidth_WhenEmptyRectangle_ReturnsZero() {
         Rectangle rectangle = new Rectangle();
         double lengthActualResult = rectangle.getLength();
         double lengthExpectedResult = 0.0;
@@ -475,7 +475,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Square: getSide возвращает установленное значение")
-    public void testSquare_getSide() {
+    public void getSide_WhenSquareCreatedWithSide_ReturnsSide() {
         Square square = new Square(5);
         double actualResult = square.getSide();
         double expectedResult = 5.0;
@@ -484,7 +484,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Square: getSide после установки через сеттер")
-    public void testSquare_getSideAfterSetter() {
+    public void getSide_WhenSetViaSetter_ReturnsSetValue() {
         Square square = new Square();
         square.setSide(7);
         double actualResult = square.getSide();
@@ -494,7 +494,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Square: getSide возвращает 0 для пустого объекта")
-    public void testSquare_getSideDefaultValue() {
+    public void getSide_WhenEmptySquare_ReturnsZero() {
         Square square = new Square();
         double actualResult = square.getSide();
         double expectedResult = 0.0;
@@ -503,7 +503,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Triangle: getBase возвращает установленное значение")
-    public void testTriangle_getBase() {
+    public void getBase_WhenTriangleCreatedWithBase_ReturnsBase() {
         Triangle triangle = new Triangle(10, 5);
         double actualResult = triangle.getBase();
         double expectedResult = 10.0;
@@ -512,7 +512,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Triangle: getHeight возвращает установленное значение")
-    public void testTriangle_getHeight() {
+    public void getHeight_WhenTriangleCreatedWithHeight_ReturnsHeight() {
         Triangle triangle = new Triangle(10, 5);
         double actualResult = triangle.getHeight();
         double expectedResult = 5.0;
@@ -521,7 +521,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Triangle: геттеры после установки через сеттеры")
-    public void testTriangle_gettersAfterSetters() {
+    public void getBaseAndHeight_WhenSetViaSetters_ReturnsSetValues() {
         Triangle triangle = new Triangle();
         triangle.setBase(8);
         triangle.setHeight(6);
@@ -536,7 +536,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Triangle: геттеры возвращают 0 для пустого объекта")
-    public void testTriangle_gettersDefaultValues() {
+    public void getBaseAndHeight_WhenEmptyTriangle_ReturnsZero() {
         Triangle triangle = new Triangle();
         double baseActualResult = triangle.getBase();
         double baseExpectedResult = 0.0;
@@ -549,7 +549,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rhombus: getDiagonal1 возвращает установленное значение")
-    public void testRhombus_getDiagonal1() {
+    public void getDiagonal1_WhenRhombusCreatedWithDiagonal1_ReturnsDiagonal1() {
         Rhombus rhombus = new Rhombus(4, 5);
         double actualResult = rhombus.getDiagonal1();
         double expectedResult = 4.0;
@@ -558,7 +558,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rhombus: getDiagonal2 возвращает установленное значение")
-    public void testRhombus_getDiagonal2() {
+    public void getDiagonal2_WhenRhombusCreatedWithDiagonal2_ReturnsDiagonal2() {
         Rhombus rhombus = new Rhombus(4, 5);
         double actualResult = rhombus.getDiagonal2();
         double expectedResult = 5.0;
@@ -567,7 +567,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rhombus: геттеры после установки через сеттеры")
-    public void testRhombus_gettersAfterSetters() {
+    public void getDiagonal1AndDiagonal2_WhenSetViaSetters_ReturnsSetValues() {
         Rhombus rhombus = new Rhombus();
         rhombus.setDiagonal1(8);
         rhombus.setDiagonal2(6);
@@ -582,7 +582,7 @@ public class ShapeTest {
 
     @Test
     @DisplayName("Rhombus: геттеры возвращают 0 для пустого объекта")
-    public void testRhombus_gettersDefaultValues() {
+    public void getDiagonal1AndDiagonal2_WhenEmptyRhombus_ReturnsZero() {
         Rhombus rhombus = new Rhombus();
         double diagonal1ActualResult = rhombus.getDiagonal1();
         double diagonal1ExpectedResult = 0.0;

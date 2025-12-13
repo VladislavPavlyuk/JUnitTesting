@@ -20,14 +20,14 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates возвращает не-null карту")
-    public void testGetConversionRates_NotNull() {
+    public void getConversionRates_WhenCalled_ReturnsNotNull() {
         Map<String, Double> rates = provider.getConversionRates();
         assertNotNull(rates);
     }
 
     @Test
     @DisplayName("getConversionRates содержит все единицы длины")
-    public void testGetConversionRates_ContainsAllUnits() {
+    public void getConversionRates_WhenCalled_ContainsAllUnits() {
         Map<String, Double> rates = provider.getConversionRates();
         assertTrue(rates.containsKey("mm"));
         assertTrue(rates.containsKey("cm"));
@@ -38,7 +38,7 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: метры имеют коэффициент 1.0")
-    public void testGetConversionRates_MeterRate() {
+    public void getConversionRates_WhenMeter_ReturnsOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResultM = rates.get("m");
         double expectedResultM = 1.0;
@@ -55,7 +55,7 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: миллиметры имеют коэффициент 0.001")
-    public void testGetConversionRates_MillimeterRate() {
+    public void getConversionRates_WhenMillimeter_ReturnsZeroPointZeroZeroOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("mm");
         double expectedResult = 0.001;
@@ -64,7 +64,7 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: сантиметры имеют коэффициент 0.01")
-    public void testGetConversionRates_CentimeterRate() {
+    public void getConversionRates_WhenCentimeter_ReturnsZeroPointZeroOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("cm");
         double expectedResult = 0.01;
@@ -73,7 +73,7 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: дециметры имеют коэффициент 0.1")
-    public void testGetConversionRates_DecimeterRate() {
+    public void getConversionRates_WhenDecimeter_ReturnsZeroPointOne() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("dm");
         double expectedResult = 0.1;
@@ -82,7 +82,7 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getConversionRates: километры имеют коэффициент 1000.0")
-    public void testGetConversionRates_KilometerRate() {
+    public void getConversionRates_WhenKilometer_ReturnsThousand() {
         Map<String, Double> rates = provider.getConversionRates();
         double actualResult = rates.get("km");
         double expectedResult = 1000.0;
@@ -91,13 +91,13 @@ public class LengthUnitProviderTest {
 
     @Test
     @DisplayName("getBaseUnit возвращает 'm'")
-    public void testGetBaseUnit() {
+    public void getBaseUnit_WhenCalled_ReturnsMeter() {
         assertEquals("m", provider.getBaseUnit());
     }
 
     @Test
     @DisplayName("getConversionRates: все коэффициенты положительные")
-    public void testGetConversionRates_AllRatesPositive() {
+    public void getConversionRates_WhenCalled_AllRatesArePositive() {
         Map<String, Double> rates = provider.getConversionRates();
         for (Double rate : rates.values()) {
             assertTrue(rate > 0, "Rate should be positive: " + rate);

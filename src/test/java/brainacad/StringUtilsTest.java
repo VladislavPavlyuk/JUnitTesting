@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class StringUtilsTest {
 
     @Test
-    public void palindrometest_should_return_true_if_called() {
+    public void isPalindrome_WhenPalindromeString_ReturnsTrue() {
         String input = "A man a plan a canal Panama";
         boolean actualResult = StringUtils.isPalindrome(input);
         boolean expectedResult = true;
@@ -16,7 +16,7 @@ public class StringUtilsTest {
     }
     
     @Test
-    public void palindromeTest_should_return_false_if_called() {
+    public void isPalindrome_WhenNonPalindromeString_ReturnsFalse() {
         String input = "Hello World";
         boolean actualResult = StringUtils.isPalindrome(input);
         boolean expectedResult = false;
@@ -24,7 +24,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void palindromeTest_should_return_10_if_called() {
+    public void countVowels_WhenPalindromeString_ReturnsTen() {
         String input = "A man a plan a canal Panama";
         int actualResult = StringUtils.countVowels(input);
         int expectedResult = 10;
@@ -32,7 +32,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void palindromeTest_should_return_3_if_called() {
+    public void countVowels_WhenNormalString_ReturnsThree() {
         String input = "Hello World";
         int actualResult = StringUtils.countVowels(input);
         int expectedResult = 3;
@@ -40,7 +40,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void palindromeTest_should_return_11_if_called() {
+    public void countConsonants_WhenPalindromeString_ReturnsEleven() {
         String input = "A man a plan a canal Panama";
         int actualResult = StringUtils.countConsonants(input);
         int expectedResult = 11;
@@ -48,7 +48,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void palindromeTest_should_return_7_if_called() {
+    public void countConsonants_WhenNormalString_ReturnsSeven() {
         String input = "Hello World";
         int actualResult = StringUtils.countConsonants(input);
         int expectedResult = 7;
@@ -56,7 +56,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testCountConsonants_MixedText() {
+    public void countConsonants_WhenMixedText_ReturnsSeven() {
         String input = "Привет Hello";
         int actualResult = StringUtils.countConsonants(input);
         int expectedResult = 7;
@@ -64,7 +64,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void palindromeTest_should_return_1_if_called() {
+    public void countWordOccurrences_WhenWordExistsOnce_ReturnsOne() {
         String text = "A man a plan a canal Panama";
         String word = "canal";
         int actualResult = StringUtils.countWordOccurrences(text, word);
@@ -73,7 +73,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void palindromeTest_should_return_2_if_called() {
+    public void countWordOccurrences_WhenWordExistsTwice_ReturnsTwo() {
         String text = "Hello World, Hello";
         String word = "Hello";
         int actualResult = StringUtils.countWordOccurrences(text, word);

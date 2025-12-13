@@ -20,14 +20,14 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates возвращает не-null карту")
-    public void testGetExchangeRates_NotNull() {
+    public void getExchangeRates_WhenCalled_ReturnsNotNull() {
         Map<String, Double> rates = provider.getExchangeRates();
         assertNotNull(rates);
     }
 
     @Test
     @DisplayName("getExchangeRates возвращает карту с курсами валют")
-    public void testGetExchangeRates_ContainsCurrencies() {
+    public void getExchangeRates_WhenCalled_ContainsAllCurrencies() {
         Map<String, Double> rates = provider.getExchangeRates();
         assertTrue(rates.containsKey("USD"));
         assertTrue(rates.containsKey("EUR"));
@@ -37,7 +37,7 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates: USD имеет курс 1.0")
-    public void testGetExchangeRates_UsdRate() {
+    public void getExchangeRates_WhenUsd_ReturnsOne() {
         Map<String, Double> rates = provider.getExchangeRates();
         double actualResult = rates.get("USD");
         double expectedResult = 1.0;
@@ -46,7 +46,7 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates: EUR имеет курс 0.85")
-    public void testGetExchangeRates_EurRate() {
+    public void getExchangeRates_WhenEur_ReturnsZeroPointEightFive() {
         Map<String, Double> rates = provider.getExchangeRates();
         double actualResult = rates.get("EUR");
         double expectedResult = 0.85;
@@ -55,7 +55,7 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates: GBP имеет курс 0.75")
-    public void testGetExchangeRates_GbpRate() {
+    public void getExchangeRates_WhenGbp_ReturnsZeroPointSevenFive() {
         Map<String, Double> rates = provider.getExchangeRates();
         double actualResult = rates.get("GBP");
         double expectedResult = 0.75;
@@ -64,7 +64,7 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates: JPY имеет курс 110.0")
-    public void testGetExchangeRates_JpyRate() {
+    public void getExchangeRates_WhenJpy_ReturnsOneHundredTen() {
         Map<String, Double> rates = provider.getExchangeRates();
         double actualResult = rates.get("JPY");
         double expectedResult = 110.0;
@@ -73,7 +73,7 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates возвращает 4 валюты")
-    public void testGetExchangeRates_Size() {
+    public void getExchangeRates_WhenCalled_ReturnsFourCurrencies() {
         Map<String, Double> rates = provider.getExchangeRates();
         int actualResult = rates.size();
         int expectedResult = 4;
@@ -82,7 +82,7 @@ public class ExchangeRateProviderTest {
 
     @Test
     @DisplayName("getExchangeRates: все курсы положительные")
-    public void testGetExchangeRates_AllRatesPositive() {
+    public void getExchangeRates_WhenCalled_AllRatesArePositive() {
         Map<String, Double> rates = provider.getExchangeRates();
         for (Double rate : rates.values()) {
             assertTrue(rate > 0, "Rate should be positive: " + rate);
