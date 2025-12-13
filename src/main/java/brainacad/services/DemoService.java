@@ -89,7 +89,7 @@ public class DemoService {
         System.out.println();
 
         isSupported = currencyConverter.isCurrencySupported("GBP");
-        System.out.println("Поддерживается ли USD: " + isSupported);
+        System.out.println("Поддерживается ли GBP: " + isSupported);
         System.out.println();
 
         isSupported = currencyConverter.isCurrencySupported("JPY");
@@ -126,7 +126,7 @@ public class DemoService {
         System.out.println("  Vowels count: " + vowelsCount);
 
         consonantsCount = StringUtils.countConsonants(testString);
-        System.out.println("  Constant count: " + consonantsCount);
+        System.out.println("  Consonants count: " + consonantsCount);
 
         wordOccurrences = StringUtils.countWordOccurrences(testString, "Panama");
         System.out.println("  'Panama' word occurrences: " + wordOccurrences);
