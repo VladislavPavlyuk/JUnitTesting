@@ -167,7 +167,7 @@ public class WeightConverterTest {
     @Test
     @DisplayName("Центнеры -> Тонны")
     public void testConvert_CwtToT() {
-        assertEquals(10, converter.convert("cwt", "t", 1), 0.001);
+        assertEquals(0.1, converter.convert("cwt", "t", 1), 0.001);
     }
 
     @Test

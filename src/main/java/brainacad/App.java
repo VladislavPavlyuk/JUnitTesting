@@ -1,6 +1,7 @@
 package brainacad;
 
 import brainacad.currencies.models.CurrencyConverter;
+import brainacad.lengths.model.LengthConverter;
 import brainacad.shapes.models.Rectangle;
 import brainacad.shapes.models.Rhombus;
 import brainacad.shapes.models.Square;
