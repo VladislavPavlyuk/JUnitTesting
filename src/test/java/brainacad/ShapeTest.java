@@ -1,7 +1,6 @@
 package brainacad;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import brainacad.shapes.models.*;
 
@@ -338,6 +337,126 @@ public class ShapeTest {
         assertEquals(12.0, rectangle.calculateArea(), 0.001);
         assertEquals(9.0, square.calculateArea(), 0.001);
         assertEquals(6.0, rhombus.calculateArea(), 0.001);
+    }
+
+    // ========== ТЕСТЫ ГЕТТЕРОВ ==========
+
+    @Test
+    @DisplayName("Rectangle: getLength возвращает установленное значение")
+    public void testRectangle_getLength() {
+        Rectangle rectangle = new Rectangle(10, 5);
+        assertEquals(10.0, rectangle.getLength(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rectangle: getWidth возвращает установленное значение")
+    public void testRectangle_getWidth() {
+        Rectangle rectangle = new Rectangle(10, 5);
+        assertEquals(5.0, rectangle.getWidth(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rectangle: геттеры после установки через сеттеры")
+    public void testRectangle_gettersAfterSetters() {
+        Rectangle rectangle = new Rectangle();
+        rectangle.setLength(8);
+        rectangle.setWidth(6);
+        assertEquals(8.0, rectangle.getLength(), 0.001);
+        assertEquals(6.0, rectangle.getWidth(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rectangle: геттеры возвращают 0 для пустого объекта")
+    public void testRectangle_gettersDefaultValues() {
+        Rectangle rectangle = new Rectangle();
+        assertEquals(0.0, rectangle.getLength(), 0.001);
+        assertEquals(0.0, rectangle.getWidth(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Square: getSide возвращает установленное значение")
+    public void testSquare_getSide() {
+        Square square = new Square(5);
+        assertEquals(5.0, square.getSide(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Square: getSide после установки через сеттер")
+    public void testSquare_getSideAfterSetter() {
+        Square square = new Square();
+        square.setSide(7);
+        assertEquals(7.0, square.getSide(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Square: getSide возвращает 0 для пустого объекта")
+    public void testSquare_getSideDefaultValue() {
+        Square square = new Square();
+        assertEquals(0.0, square.getSide(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Triangle: getBase возвращает установленное значение")
+    public void testTriangle_getBase() {
+        Triangle triangle = new Triangle(10, 5);
+        assertEquals(10.0, triangle.getBase(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Triangle: getHeight возвращает установленное значение")
+    public void testTriangle_getHeight() {
+        Triangle triangle = new Triangle(10, 5);
+        assertEquals(5.0, triangle.getHeight(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Triangle: геттеры после установки через сеттеры")
+    public void testTriangle_gettersAfterSetters() {
+        Triangle triangle = new Triangle();
+        triangle.setBase(8);
+        triangle.setHeight(6);
+        assertEquals(8.0, triangle.getBase(), 0.001);
+        assertEquals(6.0, triangle.getHeight(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Triangle: геттеры возвращают 0 для пустого объекта")
+    public void testTriangle_gettersDefaultValues() {
+        Triangle triangle = new Triangle();
+        assertEquals(0.0, triangle.getBase(), 0.001);
+        assertEquals(0.0, triangle.getHeight(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rhombus: getDiagonal1 возвращает установленное значение")
+    public void testRhombus_getDiagonal1() {
+        Rhombus rhombus = new Rhombus(4, 5);
+        assertEquals(4.0, rhombus.getDiagonal1(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rhombus: getDiagonal2 возвращает установленное значение")
+    public void testRhombus_getDiagonal2() {
+        Rhombus rhombus = new Rhombus(4, 5);
+        assertEquals(5.0, rhombus.getDiagonal2(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rhombus: геттеры после установки через сеттеры")
+    public void testRhombus_gettersAfterSetters() {
+        Rhombus rhombus = new Rhombus();
+        rhombus.setDiagonal1(8);
+        rhombus.setDiagonal2(6);
+        assertEquals(8.0, rhombus.getDiagonal1(), 0.001);
+        assertEquals(6.0, rhombus.getDiagonal2(), 0.001);
+    }
+
+    @Test
+    @DisplayName("Rhombus: геттеры возвращают 0 для пустого объекта")
+    public void testRhombus_gettersDefaultValues() {
+        Rhombus rhombus = new Rhombus();
+        assertEquals(0.0, rhombus.getDiagonal1(), 0.001);
+        assertEquals(0.0, rhombus.getDiagonal2(), 0.001);
     }
 }
 
