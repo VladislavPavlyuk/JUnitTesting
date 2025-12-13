@@ -1,4 +1,4 @@
-﻿package brainacad;
+package brainacad;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,3 +52,4 @@ public class StringUtilsTest {
         assertEquals(2, StringUtils.countWordOccurrences("Hello World, Hello", "Hello"));
     }
 }
+
