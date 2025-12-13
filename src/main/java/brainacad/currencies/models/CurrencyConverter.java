@@ -1,19 +1,17 @@
 package brainacad.currencies.models;
 
-import java.util.HashMap;
+import brainacad.currencies.providers.ExchangeRateProvider;
 import java.util.Map;
 import java.util.Set;
 
 public class CurrencyConverter {
     private final Map<String, Double> exchangeRates;
 
-    public CurrencyConverter() {
-        exchangeRates = new HashMap<>();
-        // Установим фиксированные курсы валют относительно USD
-        exchangeRates.put("USD", 1.0);
-        exchangeRates.put("EUR", 0.85);
-        exchangeRates.put("GBP", 0.75);
-        exchangeRates.put("JPY", 110.0);
+    public CurrencyConverter(ExchangeRateProvider rateProvider) {
+        if (rateProvider == null) {
+            throw new IllegalArgumentException("ExchangeRateProvider cannot be null");
+        }
+        this.exchangeRates = rateProvider.getExchangeRates();
     }
 
     public double convert(String fromCurrency, String toCurrency, double amount) {

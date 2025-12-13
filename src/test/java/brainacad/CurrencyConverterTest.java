@@ -1,6 +1,7 @@
 package brainacad;
 
 import brainacad.currencies.models.CurrencyConverter;
+import brainacad.currencies.providers.DefaultExchangeRateProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ public class CurrencyConverterTest {
 
     @BeforeEach
     void setUp() {
-        converter = new CurrencyConverter();
+        converter = new CurrencyConverter(new DefaultExchangeRateProvider());
     }
 
     // ========== USD (Доллар) ==========
