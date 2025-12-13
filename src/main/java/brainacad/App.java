@@ -41,8 +41,7 @@ public class App
         stringUtils.countVowels("А роза упала на лапу Азора");
         stringUtils.countConsonants("А роза упала на лапу Азора");  
         stringUtils.countWordOccurrences("А роза упала на лапу Азора", "Азора");
-
-
+        
         //Задание 4
         LengthConverter lengthConverter = new LengthConverter();
         lengthConverter.toCentimeters(100);
