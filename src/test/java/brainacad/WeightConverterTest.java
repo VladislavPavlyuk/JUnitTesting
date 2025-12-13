@@ -6,8 +6,10 @@ import brainacad.weights.models.WeightConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 @DisplayName("Тесты для конвертации единиц веса")
+@ExtendWith(TestResultLogger.class)
 public class WeightConverterTest {
     private WeightConverter converter;
 

@@ -6,8 +6,10 @@ import brainacad.lengths.model.LengthConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 @DisplayName("Тесты для конвертации единиц длины")
+@ExtendWith(TestResultLogger.class)
 public class LengthConverterTest {
     private LengthConverter converter;
 

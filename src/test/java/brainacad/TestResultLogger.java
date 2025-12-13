@@ -1,0 +1,58 @@
+package brainacad;
+
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.TestWatcher;
+
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+
+public class TestResultLogger implements TestWatcher, BeforeTestExecutionCallback {
+    
+    private static PrintStream out;
+    
+    static {
+        try {
+            out = new PrintStream(System.out, true, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            out = System.out;
+        }
+    }
+    
+    @Override
+    public void beforeTestExecution(ExtensionContext context) {
+        String testName = getTestName(context);
+        out.println("\n▶ ВЫПОЛНЕНИЕ ТЕСТА: " + testName);
+    }
+    
+    @Override
+    public void testSuccessful(ExtensionContext context) {
+        String testName = getTestName(context);
+        out.println("✓ ТЕСТ УСПЕШНО ВЫПОЛНЕН: " + testName);
+    }
+    
+    @Override
+    public void testFailed(ExtensionContext context, Throwable cause) {
+        String testName = getTestName(context);
+        out.println("✗ ТЕСТ НЕ ПРОШЕЛ: " + testName);
+        out.println("  Причина: " + cause.getMessage());
+    }
+    
+    @Override
+    public void testAborted(ExtensionContext context, Throwable cause) {
+        String testName = getTestName(context);
+        out.println("⚠ ТЕСТ ПРЕРВАН: " + testName);
+        if (cause != null) {
+            out.println("  Причина: " + cause.getMessage());
+        }
+    }
+    
+    private String getTestName(ExtensionContext context) {
+        String displayName = context.getDisplayName();
+        String methodName = context.getTestMethod().map(m -> m.getName()).orElse("Unknown");
+        return displayName != null && !displayName.equals(methodName) 
+            ? displayName + " (" + methodName + ")" 
+            : methodName;
+    }
+}
+

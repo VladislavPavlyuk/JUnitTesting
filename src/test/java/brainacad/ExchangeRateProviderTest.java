@@ -5,11 +5,13 @@ import brainacad.currencies.providers.ExchangeRateProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Map;
 
 @DisplayName("Тесты для провайдера курсов валют")
+@ExtendWith(TestResultLogger.class)
 public class ExchangeRateProviderTest {
     private ExchangeRateProvider provider;
 

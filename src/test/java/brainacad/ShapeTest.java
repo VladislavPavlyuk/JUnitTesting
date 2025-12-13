@@ -2,11 +2,13 @@ package brainacad;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.extension.ExtendWith;
 import brainacad.shapes.models.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Тесты для вычисления площади геометрических фигур")
+@ExtendWith(TestResultLogger.class)
 public class ShapeTest {
 
     // ========== ТРЕУГОЛЬНИК ==========
