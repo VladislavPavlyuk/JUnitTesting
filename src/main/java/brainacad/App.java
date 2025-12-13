@@ -13,6 +13,7 @@ public class App
 {
     public static void main(String[] args) {
 
+        /// Задание 1
         Rectangle rectangle = new Rectangle();
         rectangle.calculateArea();
 
@@ -24,6 +25,8 @@ public class App
 
         Triangle triangle = new Triangle();
         triangle.calculateArea();
+
+        //Задание 2
 
         CurrencyConverter currencyConverter = new CurrencyConverter();
         currencyConverter.convert("EUR","USD",1);
