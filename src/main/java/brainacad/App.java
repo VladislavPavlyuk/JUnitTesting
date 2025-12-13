@@ -1,7 +1,6 @@
 package brainacad;
 
 import brainacad.currencies.models.CurrencyConverter;
-import brainacad.lengths.model.LengthConverter;
 import brainacad.shapes.models.Rectangle;
 import brainacad.shapes.models.Rhombus;
 import brainacad.shapes.models.Square;
@@ -31,12 +30,15 @@ public class App
         CurrencyConverter currencyConverter = new CurrencyConverter();
         currencyConverter.convert("EUR","USD",1);
 
-        LengthConverter lengthConverter = new LengthConverter();
-        lengthConverter.toCentimeters(100);
-
+        //Задание 3
         StringUtils stringUtils = new StringUtils();
         stringUtils.isPalindrome("А роза упала на лапу Азора");
 
+        //Задание 4
+        LengthConverter lengthConverter = new LengthConverter();
+        lengthConverter.toCentimeters(100);
+
+        //Задание 5
         WeightConverter weightConverter = new WeightConverter();
         weightConverter.toCentners(100);
     }
