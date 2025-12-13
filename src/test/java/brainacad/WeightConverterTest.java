@@ -259,20 +259,32 @@ public class WeightConverterTest {
     }
 
     @Test
-    @DisplayName("Тонны: разные варианты написания (ton, tonne)")
-    public void convert_WhenTonVariants_ReturnsCorrectValue() {
+    @DisplayName("Тонны: вариант написания 'ton'")
+    public void convert_WhenTonVariant_ReturnsCorrectValue() {
         double actualResultTon = converter.convert("ton", "kg", 1);
         double expectedResultTon = 1000;
         assertEquals(expectedResultTon, actualResultTon, 0.001);
-        
+    }
+
+    @Test
+    @DisplayName("Тонны: вариант написания 'tonne'")
+    public void convert_WhenTonneVariant_ReturnsCorrectValue() {
         double actualResultTonne = converter.convert("tonne", "kg", 1);
         double expectedResultTonne = 1000;
         assertEquals(expectedResultTonne, actualResultTonne, 0.001);
-        
+    }
+
+    @Test
+    @DisplayName("Тонны: вариант написания 'tons'")
+    public void convert_WhenTonsVariant_ReturnsCorrectValue() {
         double actualResultTons = converter.convert("tons", "kg", 1);
         double expectedResultTons = 1000;
         assertEquals(expectedResultTons, actualResultTons, 0.001);
-        
+    }
+
+    @Test
+    @DisplayName("Тонны: вариант написания 'tonnes'")
+    public void convert_WhenTonnesVariant_ReturnsCorrectValue() {
         double actualResultTonnes = converter.convert("tonnes", "kg", 1);
         double expectedResultTonnes = 1000;
         assertEquals(expectedResultTonnes, actualResultTonnes, 0.001);
@@ -414,26 +426,32 @@ public class WeightConverterTest {
     // ========== ПРАКТИЧЕСКИЕ ПРИМЕРЫ ==========
 
     @Test
-    @DisplayName("Практический пример: конвертация веса человека")
-    public void convert_WhenPersonWeight_ReturnsCorrectValue() {
-        // 70 кг в граммы
+    @DisplayName("Практический пример: конвертация веса человека в граммы")
+    public void convert_WhenPersonWeightToGrams_ReturnsCorrectValue() {
         double actualResultGrams = converter.convert("kg", "g", 70);
         double expectedResultGrams = 70_000;
         assertEquals(expectedResultGrams, actualResultGrams, 0.001);
-        // 70 кг в миллиграммы
+    }
+
+    @Test
+    @DisplayName("Практический пример: конвертация веса человека в миллиграммы")
+    public void convert_WhenPersonWeightToMilligrams_ReturnsCorrectValue() {
         double actualResultMilligrams = converter.convert("kg", "mg", 70);
         double expectedResultMilligrams = 70_000_000;
         assertEquals(expectedResultMilligrams, actualResultMilligrams, 0.001);
     }
 
     @Test
-    @DisplayName("Практический пример: конвертация груза")
-    public void convert_WhenCargoWeight_ReturnsCorrectValue() {
-        // 5 тонн в килограммы
+    @DisplayName("Практический пример: конвертация груза в килограммы")
+    public void convert_WhenCargoWeightToKilograms_ReturnsCorrectValue() {
         double actualResultKilograms = converter.convert("t", "kg", 5);
         double expectedResultKilograms = 5000;
         assertEquals(expectedResultKilograms, actualResultKilograms, 0.001);
-        // 5 тонн в центнеры
+    }
+
+    @Test
+    @DisplayName("Практический пример: конвертация груза в центнеры")
+    public void convert_WhenCargoWeightToCentners_ReturnsCorrectValue() {
         double actualResultCentners = converter.convert("t", "cwt", 5);
         double expectedResultCentners = 50;
         assertEquals(expectedResultCentners, actualResultCentners, 0.001);

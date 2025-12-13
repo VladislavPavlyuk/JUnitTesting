@@ -327,16 +327,44 @@ public class CurrencyConverterTest {
     }
 
     @Test
-    @DisplayName("Получение списка поддерживаемых валют")
+    @DisplayName("Получение списка поддерживаемых валют: размер множества")
     public void getSupportedCurrencies_WhenCalled_ReturnsFourCurrencies() {
         java.util.Set<String> currencies = converter.getSupportedCurrencies();
-        assertTrue(currencies.contains("USD"));
-        assertTrue(currencies.contains("EUR"));
-        assertTrue(currencies.contains("GBP"));
-        assertTrue(currencies.contains("JPY"));
         int actualResult = currencies.size();
         int expectedResult = 4;
         assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    @DisplayName("Получение списка поддерживаемых валют: содержит USD")
+    public void getSupportedCurrencies_WhenCalled_ContainsUsd() {
+        java.util.Set<String> currencies = converter.getSupportedCurrencies();
+        boolean actualResult = currencies.contains("USD");
+        assertTrue(actualResult);
+    }
+
+    @Test
+    @DisplayName("Получение списка поддерживаемых валют: содержит EUR")
+    public void getSupportedCurrencies_WhenCalled_ContainsEur() {
+        java.util.Set<String> currencies = converter.getSupportedCurrencies();
+        boolean actualResult = currencies.contains("EUR");
+        assertTrue(actualResult);
+    }
+
+    @Test
+    @DisplayName("Получение списка поддерживаемых валют: содержит GBP")
+    public void getSupportedCurrencies_WhenCalled_ContainsGbp() {
+        java.util.Set<String> currencies = converter.getSupportedCurrencies();
+        boolean actualResult = currencies.contains("GBP");
+        assertTrue(actualResult);
+    }
+
+    @Test
+    @DisplayName("Получение списка поддерживаемых валют: содержит JPY")
+    public void getSupportedCurrencies_WhenCalled_ContainsJpy() {
+        java.util.Set<String> currencies = converter.getSupportedCurrencies();
+        boolean actualResult = currencies.contains("JPY");
+        assertTrue(actualResult);
     }
 
     // ========== Интеграционные тесты ==========

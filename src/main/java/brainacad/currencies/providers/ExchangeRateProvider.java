@@ -6,3 +6,4 @@ public interface ExchangeRateProvider {
     Map<String, Double> getExchangeRates();
 }
 
+

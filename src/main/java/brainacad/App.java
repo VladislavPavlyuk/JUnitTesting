@@ -1,8 +1,9 @@
 package brainacad;
 
-import brainacad.services.DemoService;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+
+import brainacad.services.DemoService;
 
 public class App {
     public static void main(String[] args) {
