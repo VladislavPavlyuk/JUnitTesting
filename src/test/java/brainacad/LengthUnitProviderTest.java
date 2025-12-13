@@ -40,37 +40,53 @@ public class LengthUnitProviderTest {
     @DisplayName("getConversionRates: метры имеют коэффициент 1.0")
     public void testGetConversionRates_MeterRate() {
         Map<String, Double> rates = provider.getConversionRates();
-        assertEquals(1.0, rates.get("m"), 0.001);
-        assertEquals(1.0, rates.get("meter"), 0.001);
-        assertEquals(1.0, rates.get("meters"), 0.001);
+        double actualResultM = rates.get("m");
+        double expectedResultM = 1.0;
+        assertEquals(expectedResultM, actualResultM, 0.001);
+        
+        double actualResultMeter = rates.get("meter");
+        double expectedResultMeter = 1.0;
+        assertEquals(expectedResultMeter, actualResultMeter, 0.001);
+        
+        double actualResultMeters = rates.get("meters");
+        double expectedResultMeters = 1.0;
+        assertEquals(expectedResultMeters, actualResultMeters, 0.001);
     }
 
     @Test
     @DisplayName("getConversionRates: миллиметры имеют коэффициент 0.001")
     public void testGetConversionRates_MillimeterRate() {
         Map<String, Double> rates = provider.getConversionRates();
-        assertEquals(0.001, rates.get("mm"), 0.001);
+        double actualResult = rates.get("mm");
+        double expectedResult = 0.001;
+        assertEquals(expectedResult, actualResult, 0.0001);
     }
 
     @Test
     @DisplayName("getConversionRates: сантиметры имеют коэффициент 0.01")
     public void testGetConversionRates_CentimeterRate() {
         Map<String, Double> rates = provider.getConversionRates();
-        assertEquals(0.01, rates.get("cm"), 0.001);
+        double actualResult = rates.get("cm");
+        double expectedResult = 0.01;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("getConversionRates: дециметры имеют коэффициент 0.1")
     public void testGetConversionRates_DecimeterRate() {
         Map<String, Double> rates = provider.getConversionRates();
-        assertEquals(0.1, rates.get("dm"), 0.001);
+        double actualResult = rates.get("dm");
+        double expectedResult = 0.1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("getConversionRates: километры имеют коэффициент 1000.0")
     public void testGetConversionRates_KilometerRate() {
         Map<String, Double> rates = provider.getConversionRates();
-        assertEquals(1000.0, rates.get("km"), 0.001);
+        double actualResult = rates.get("km");
+        double expectedResult = 1000.0;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test

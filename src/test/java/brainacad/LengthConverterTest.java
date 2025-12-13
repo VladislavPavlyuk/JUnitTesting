@@ -21,31 +21,41 @@ public class LengthConverterTest {
     @Test
     @DisplayName("Метры -> Миллиметры: 1 метр = 1000 мм")
     public void testToMillimeters() {
-        assertEquals(1000, converter.toMillimeters(1), 0.001);
+        double actualResult = converter.toMillimeters(1);
+        double expectedResult = 1000;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Метры -> Сантиметры: 1 метр = 100 см")
     public void testToCentimeters() {
-        assertEquals(100, converter.toCentimeters(1), 0.001);
+        double actualResult = converter.toCentimeters(1);
+        double expectedResult = 100;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Метры -> Дециметры: 1 метр = 10 дм")
     public void testToDecimeters() {
-        assertEquals(10, converter.toDecimeters(1), 0.001);
+        double actualResult = converter.toDecimeters(1);
+        double expectedResult = 10;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Метры -> Метры: 1 метр = 1 м")
     public void testToMeters() {
-        assertEquals(1, converter.toMeters(1), 0.001);
+        double actualResult = converter.toMeters(1);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Метры -> Километры: 1 метр = 0.001 км")
     public void testToKilometers() {
-        assertEquals(0.001, converter.toKilometers(1), 0.001);
+        double actualResult = converter.toKilometers(1);
+        double expectedResult = 0.001;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     // ========== УНИВЕРСАЛЬНАЯ КОНВЕРТАЦИЯ: МИЛЛИМЕТРЫ ==========
@@ -53,25 +63,33 @@ public class LengthConverterTest {
     @Test
     @DisplayName("Миллиметры -> Сантиметры")
     public void testConvert_MmToCm() {
-        assertEquals(10, converter.convert("mm", "cm", 100), 0.001);
+        double actualResult = converter.convert("mm", "cm", 100);
+        double expectedResult = 10;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Миллиметры -> Дециметры")
     public void testConvert_MmToDm() {
-        assertEquals(1, converter.convert("mm", "dm", 100), 0.001);
+        double actualResult = converter.convert("mm", "dm", 100);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Миллиметры -> Метры")
     public void testConvert_MmToM() {
-        assertEquals(1, converter.convert("mm", "m", 1000), 0.001);
+        double actualResult = converter.convert("mm", "m", 1000);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Миллиметры -> Километры")
     public void testConvert_MmToKm() {
-        assertEquals(1, converter.convert("mm", "km", 1000000), 0.001);
+        double actualResult = converter.convert("mm", "km", 1000000);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test

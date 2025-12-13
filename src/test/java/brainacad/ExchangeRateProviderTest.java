@@ -39,35 +39,45 @@ public class ExchangeRateProviderTest {
     @DisplayName("getExchangeRates: USD имеет курс 1.0")
     public void testGetExchangeRates_UsdRate() {
         Map<String, Double> rates = provider.getExchangeRates();
-        assertEquals(1.0, rates.get("USD"), 0.001);
+        double actualResult = rates.get("USD");
+        double expectedResult = 1.0;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("getExchangeRates: EUR имеет курс 0.85")
     public void testGetExchangeRates_EurRate() {
         Map<String, Double> rates = provider.getExchangeRates();
-        assertEquals(0.85, rates.get("EUR"), 0.001);
+        double actualResult = rates.get("EUR");
+        double expectedResult = 0.85;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("getExchangeRates: GBP имеет курс 0.75")
     public void testGetExchangeRates_GbpRate() {
         Map<String, Double> rates = provider.getExchangeRates();
-        assertEquals(0.75, rates.get("GBP"), 0.001);
+        double actualResult = rates.get("GBP");
+        double expectedResult = 0.75;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("getExchangeRates: JPY имеет курс 110.0")
     public void testGetExchangeRates_JpyRate() {
         Map<String, Double> rates = provider.getExchangeRates();
-        assertEquals(110.0, rates.get("JPY"), 0.001);
+        double actualResult = rates.get("JPY");
+        double expectedResult = 110.0;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("getExchangeRates возвращает 4 валюты")
     public void testGetExchangeRates_Size() {
         Map<String, Double> rates = provider.getExchangeRates();
-        assertEquals(4, rates.size());
+        int actualResult = rates.size();
+        int expectedResult = 4;
+        assertEquals(expectedResult, actualResult);
     }
 
     @Test

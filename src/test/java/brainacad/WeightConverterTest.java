@@ -21,31 +21,41 @@ public class WeightConverterTest {
     @Test
     @DisplayName("Килограммы -> Миллиграммы: 1 кг = 1 000 000 мг")
     public void testToMilligrams() {
-        assertEquals(1_000_000, converter.toMilligrams(1), 0.001);
+        double actualResult = converter.toMilligrams(1);
+        double expectedResult = 1_000_000;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Килограммы -> Граммы: 1 кг = 1000 г")
     public void testToGrams() {
-        assertEquals(1_000, converter.toGrams(1), 0.001);
+        double actualResult = converter.toGrams(1);
+        double expectedResult = 1_000;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Килограммы -> Килограммы: 1 кг = 1 кг")
     public void testToKilograms() {
-        assertEquals(1, converter.toKilograms(1), 0.001);
+        double actualResult = converter.toKilograms(1);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Килограммы -> Центнеры: 1 кг = 0.01 ц")
     public void testToCentners() {
-        assertEquals(0.01, converter.toCentners(1), 0.001);
+        double actualResult = converter.toCentners(1);
+        double expectedResult = 0.01;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Килограммы -> Тонны: 1 кг = 0.001 т")
     public void testToTons() {
-        assertEquals(0.001, converter.toTons(1), 0.001);
+        double actualResult = converter.toTons(1);
+        double expectedResult = 0.001;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     // ========== УНИВЕРСАЛЬНАЯ КОНВЕРТАЦИЯ: МИЛЛИГРАММЫ ==========
@@ -53,25 +63,33 @@ public class WeightConverterTest {
     @Test
     @DisplayName("Миллиграммы -> Граммы")
     public void testConvert_MgToG() {
-        assertEquals(1, converter.convert("mg", "g", 1000), 0.001);
+        double actualResult = converter.convert("mg", "g", 1000);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Миллиграммы -> Килограммы")
     public void testConvert_MgToKg() {
-        assertEquals(1, converter.convert("mg", "kg", 1_000_000), 0.001);
+        double actualResult = converter.convert("mg", "kg", 1_000_000);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Миллиграммы -> Центнеры")
     public void testConvert_MgToCwt() {
-        assertEquals(1, converter.convert("mg", "cwt", 100_000_000), 0.001);
+        double actualResult = converter.convert("mg", "cwt", 100_000_000);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
     @DisplayName("Миллиграммы -> Тонны")
     public void testConvert_MgToT() {
-        assertEquals(1, converter.convert("mg", "t", 1_000_000_000), 0.001);
+        double actualResult = converter.convert("mg", "t", 1_000_000_000);
+        double expectedResult = 1;
+        assertEquals(expectedResult, actualResult, 0.001);
     }
 
     @Test
