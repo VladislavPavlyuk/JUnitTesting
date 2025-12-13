@@ -55,6 +55,9 @@ public class DemoService {
         conversionResult = currencyConverter.convert("JPY", "EUR", 1);
         System.out.println("Конвертация 1 JPY в EUR: " + conversionResult);
 
+        conversionResult = currencyConverter.convert("EUR", "CAD", 1);
+        System.out.println("Конвертация 1 EUR в CAD: " + conversionResult);
+
         double exchangeRate = currencyConverter.getExchangeRate("EUR");
         System.out.println("Курс EUR: " + exchangeRate);
 
@@ -66,24 +69,27 @@ public class DemoService {
 
         exchangeRate = currencyConverter.getExchangeRate("JPY");
         System.out.println("Курс JPY: " + exchangeRate);
+
+        exchangeRate = currencyConverter.getExchangeRate("CAD");
+        System.out.println("Курс CAD: " + exchangeRate);
         
         java.util.Set<String> supportedCurrencies = currencyConverter.getSupportedCurrencies();
         System.out.println("Поддерживаемые валюты: " + supportedCurrencies);
         
         boolean isSupported = currencyConverter.isCurrencySupported("EUR");
         System.out.println("Поддерживается ли EUR: " + isSupported);
-        System.out.println();
 
         isSupported = currencyConverter.isCurrencySupported("USD");
         System.out.println("Поддерживается ли USD: " + isSupported);
-        System.out.println();
 
         isSupported = currencyConverter.isCurrencySupported("GBP");
         System.out.println("Поддерживается ли GBP: " + isSupported);
-        System.out.println();
 
         isSupported = currencyConverter.isCurrencySupported("JPY");
         System.out.println("Поддерживается ли JPY: " + isSupported);
+
+        isSupported = currencyConverter.isCurrencySupported("CAD");
+        System.out.println("Поддерживается ли CAD: " + isSupported);
         System.out.println();
     }
 

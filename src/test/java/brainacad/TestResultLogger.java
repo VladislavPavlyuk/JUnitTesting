@@ -10,11 +10,23 @@ import java.io.UnsupportedEncodingException;
 public class TestResultLogger implements TestWatcher, BeforeTestExecutionCallback {
     
     private static PrintStream out;
+    private static boolean utf8Initialized = false;
     
     static {
-        try {
-            out = new PrintStream(System.out, true, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
+        initializeUTF8();
+    }
+    
+    private static void initializeUTF8() {
+        if (!utf8Initialized) {
+            try {
+                System.setOut(new PrintStream(System.out, true, "UTF-8"));
+                System.setErr(new PrintStream(System.err, true, "UTF-8"));
+                out = System.out;
+                utf8Initialized = true;
+            } catch (UnsupportedEncodingException e) {
+                out = System.out;
+            }
+        } else {
             out = System.out;
         }
     }
