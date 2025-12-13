@@ -6,57 +6,175 @@ import brainacad.lengths.model.LengthConverter;
 import brainacad.shapes.models.*;
 import brainacad.stringutils.models.StringUtils;
 import brainacad.weights.models.WeightConverter;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 
 public class DemoService {
     
+    static {
+        try {
+            System.setOut(new PrintStream(System.out, true, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void demonstrateShapes() {
-        Rectangle rectangle = new Rectangle();
-        rectangle.calculateArea();
-        rectangle.getLength();
-        rectangle.getWidth();
+        System.out.println("=== Демонстрация работы с геометрическими фигурами ===");
+        
+        Rectangle rectangle = new Rectangle(10, 5);
+        double rectangleArea = rectangle.calculateArea();
+        double rectangleLength = rectangle.getLength();
+        double rectangleWidth = rectangle.getWidth();
+        System.out.println("Прямоугольник (длина=" + rectangleLength + ", ширина=" + rectangleWidth + "):");
+        System.out.println("  Площадь: " + rectangleArea);
+        System.out.println("  Длина: " + rectangleLength);
+        System.out.println("  Ширина: " + rectangleWidth);
 
-        Rhombus rhombus = new Rhombus();
-        rhombus.calculateArea();
+        Rhombus rhombus = new Rhombus(4, 5);
+        double rhombusArea = rhombus.calculateArea();
+        System.out.println("\nРомб (диагональ1=4, диагональ2=5):");
+        System.out.println("  Площадь: " + rhombusArea);
 
-        Square square = new Square();
-        square.calculateArea();
+        Square square = new Square(6);
+        double squareArea = square.calculateArea();
+        System.out.println("\nКвадрат (сторона=6):");
+        System.out.println("  Площадь: " + squareArea);
 
-        Triangle triangle = new Triangle();
-        triangle.calculateArea();
+        Triangle triangle = new Triangle(10, 5);
+        double triangleArea = triangle.calculateArea();
+        System.out.println("\nТреугольник (основание=10, высота=5):");
+        System.out.println("  Площадь: " + triangleArea);
+        System.out.println();
     }
 
     public void demonstrateCurrencyConversion() {
+        System.out.println("=== Демонстрация конвертации валют ===");
+        
         CurrencyConverter currencyConverter = new CurrencyConverter(new DefaultExchangeRateProvider());
-        currencyConverter.convert("EUR", "USD", 1);
-        currencyConverter.getExchangeRate("EUR");
-        currencyConverter.getSupportedCurrencies();
-        currencyConverter.isCurrencySupported("EUR");
+        
+        double conversionResult = currencyConverter.convert("EUR", "USD", 1);
+        System.out.println("Конвертация 1 EUR в USD: " + conversionResult);
+
+        conversionResult = currencyConverter.convert("USD", "GBP", 1);
+        System.out.println("Конвертация 1 USD в GBP: " + conversionResult);
+
+        conversionResult = currencyConverter.convert("GBP", "JPY", 1);
+        System.out.println("Конвертация 1 GBP в JPY: " + conversionResult);
+
+        conversionResult = currencyConverter.convert("JPY", "EUR", 1);
+        System.out.println("Конвертация 1 JPY в EUR: " + conversionResult);
+
+        double exchangeRate = currencyConverter.getExchangeRate("EUR");
+        System.out.println("Курс EUR: " + exchangeRate);
+
+        exchangeRate = currencyConverter.getExchangeRate("USD");
+        System.out.println("Курс USD: " + exchangeRate);
+
+        exchangeRate = currencyConverter.getExchangeRate("GBP");
+        System.out.println("Курс GBP: " + exchangeRate);
+
+        exchangeRate = currencyConverter.getExchangeRate("JPY");
+        System.out.println("Курс JPY: " + exchangeRate);
+        
+        java.util.Set<String> supportedCurrencies = currencyConverter.getSupportedCurrencies();
+        System.out.println("Поддерживаемые валюты: " + supportedCurrencies);
+        
+        boolean isSupported = currencyConverter.isCurrencySupported("EUR");
+        System.out.println("Поддерживается ли EUR: " + isSupported);
+        System.out.println();
+
+        isSupported = currencyConverter.isCurrencySupported("USD");
+        System.out.println("Поддерживается ли USD: " + isSupported);
+        System.out.println();
+
+        isSupported = currencyConverter.isCurrencySupported("GBP");
+        System.out.println("Поддерживается ли USD: " + isSupported);
+        System.out.println();
+
+        isSupported = currencyConverter.isCurrencySupported("JPY");
+        System.out.println("Поддерживается ли JPY: " + isSupported);
+        System.out.println();
     }
 
     public void demonstrateStringUtils() {
-        StringUtils.isPalindrome("А роза упала на лапу Азора");
-        StringUtils.countVowels("А роза упала на лапу Азора");
-        StringUtils.countConsonants("А роза упала на лапу Азора");
-        StringUtils.countWordOccurrences("А роза упала на лапу Азора", "Азора");
+        System.out.println("=== Демонстрация работы со кириллическими строками ===");
+
+        String testString = "А роза упала на лапу Азора";
+        boolean isPalindrome = StringUtils.isPalindrome(testString);
+        System.out.println("Строка: \"" + testString + "\"");
+        System.out.println("  Является палиндромом: " + isPalindrome);
+        
+        int vowelsCount = StringUtils.countVowels(testString);
+        System.out.println("  Количество гласных: " + vowelsCount);
+        
+        int consonantsCount = StringUtils.countConsonants(testString);
+        System.out.println("  Количество согласных: " + consonantsCount);
+        
+        int wordOccurrences = StringUtils.countWordOccurrences(testString, "Азора");
+        System.out.println("  Количество вхождений слова 'Азора': " + wordOccurrences);
+        System.out.println();
+
+        System.out.println("=== Demonstrating method with latin string ===");
+
+        testString = "A man, a plan, a canal: Panama!";
+        isPalindrome = StringUtils.isPalindrome(testString);
+        System.out.println("String: \"" + testString + "\"");
+        System.out.println("  Is the palindrome: " + isPalindrome);
+
+        vowelsCount = StringUtils.countVowels(testString);
+        System.out.println("  Vowels count: " + vowelsCount);
+
+        consonantsCount = StringUtils.countConsonants(testString);
+        System.out.println("  Constant count: " + consonantsCount);
+
+        wordOccurrences = StringUtils.countWordOccurrences(testString, "Panama");
+        System.out.println("  'Panama' word occurrences: " + wordOccurrences);
+        System.out.println();
     }
 
     public void demonstrateLengthConversion() {
+        System.out.println("=== Демонстрация конвертации длины ===");
+        
         LengthConverter lengthConverter = new LengthConverter();
-        lengthConverter.toCentimeters(100);
-        lengthConverter.toMillimeters(100);
-        lengthConverter.toDecimeters(100);
-        lengthConverter.toMeters(100);
-        lengthConverter.toKilometers(100);
-        lengthConverter.convert("mm", "cm", 100);
+        
+        double centimeters = lengthConverter.toCentimeters(100);
+        System.out.println("100 метров в сантиметры: " + centimeters);
+        
+        double millimeters = lengthConverter.toMillimeters(100);
+        System.out.println("100 метров в миллиметры: " + millimeters);
+        
+        double decimeters = lengthConverter.toDecimeters(100);
+        System.out.println("100 метров в дециметры: " + decimeters);
+        
+        double kilometers = lengthConverter.toKilometers(100);
+        System.out.println("100 метров в километры: " + kilometers);
+        
+        double convertResult = lengthConverter.convert("mm", "cm", 100);
+        System.out.println("100 мм в см: " + convertResult);
+        System.out.println();
     }
 
     public void demonstrateWeightConversion() {
+        System.out.println("=== Демонстрация конвертации веса ===");
+        
         WeightConverter weightConverter = new WeightConverter();
-        weightConverter.toCentners(100);
-        weightConverter.toGrams(100);
-        weightConverter.toKilograms(100);
-        weightConverter.toMilligrams(100);
-        weightConverter.convert("mg", "g", 100);
+        
+        double centners = weightConverter.toCentners(100);
+        System.out.println("100 кг в центнеры: " + centners);
+        
+        double grams = weightConverter.toGrams(100);
+        System.out.println("100 кг в граммы: " + grams);
+        
+        double kilograms = weightConverter.toKilograms(100);
+        System.out.println("100 кг в килограммы: " + kilograms);
+        
+        double milligrams = weightConverter.toMilligrams(100);
+        System.out.println("100 кг в миллиграммы: " + milligrams);
+        
+        double convertResult = weightConverter.convert("mg", "g", 100);
+        System.out.println("100 мг в г: " + convertResult);
+        System.out.println();
     }
 }
 

@@ -61,7 +61,10 @@ public class StringUtils {
         }
         // Экранируем специальные символы регулярных выражений
         String escapedWord = Pattern.quote(word);
-        Pattern pattern = Pattern.compile("\\b" + escapedWord + "\\b", Pattern.CASE_INSENSITIVE);
+        // Используем Unicode-aware границы слов для поддержки кириллицы
+        // (?<![\\p{L}\\p{N}]) - не буква и не цифра перед словом
+        // (?![\\p{L}\\p{N}]) - не буква и не цифра после слова
+        Pattern pattern = Pattern.compile("(?<![\\p{L}\\p{N}])" + escapedWord + "(?![\\p{L}\\p{N}])", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
         Matcher matcher = pattern.matcher(str);
         int count = 0;
         while (matcher.find()) {
